@@ -81,7 +81,7 @@ const Registration = () => {
                         {/* {signError} */}
                         <input className=' btn w-full max-w-xs text-white' type="submit" value='login' />
                     </form>
-                    <p><span>New Princees parts ? <Link to='/login' className='text-primary  '>Create new Account</Link></span></p>
+                    <p><span>Already have an Account ? <Link to='/login' className='text-primary  '><i>Please Login</i></Link></span></p>
                     <div className="divider">OR</div>
                     <button className="btn btn-outline  "> <FcGoogle className='text-3xl mr-2'></FcGoogle> Continue with Google</button>
 
