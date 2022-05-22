@@ -2,11 +2,15 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { auth } from '../firebase.init';
+import {  useSignInWithGoogle } from 'react-firebase-hooks/auth';
 const LogIn = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => {
         console.log(data);
     }
+    
     return (
         <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -64,7 +68,7 @@ const LogIn = () => {
                     </form>
                     <p><span>New Princees parts ? <Link to='/registration' className='text-primary  '>Create new Account</Link></span></p>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline  "> <FcGoogle className='text-3xl mr-2'></FcGoogle> Continue with Google</button>
+                    <button className="btn btn-outline   " onClick={()=>signInWithGoogle()}> <FcGoogle className='text-3xl mr-2'></FcGoogle> Continue with Google</button>
 
 
                 </div>
