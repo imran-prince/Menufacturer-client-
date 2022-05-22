@@ -6,7 +6,7 @@ const Navbar = () => {
       <li><CustomLink to='/home'>Home</CustomLink></li>
       <li><CustomLink to='/contact'>About</CustomLink></li>
       <li><CustomLink to='/about'>Contact</CustomLink></li>
-      {/* <li><CustomLink to='/home'> </CustomLink></li> */}
+      <li><CustomLink to='/login'>Login</CustomLink></li>
       
        
 
