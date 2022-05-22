@@ -6,13 +6,13 @@ const Navbar = () => {
       <li><CustomLink to='/home'>Home</CustomLink></li>
       <li><CustomLink to='/contact'>About</CustomLink></li>
       <li><CustomLink to='/about'>Contact</CustomLink></li>
-      {/* <li><CustomLink to='/home'>Home</CustomLink></li> */}
+      {/* <li><CustomLink to='/home'> </CustomLink></li> */}
       
        
 
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 pb-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
