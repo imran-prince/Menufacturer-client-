@@ -2,7 +2,10 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase.init';
 const Registration = () => {
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth );
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -83,7 +86,7 @@ const Registration = () => {
                     </form>
                     <p><span>Already have an Account ? <Link to='/login' className='text-primary  '><i>Please Login</i></Link></span></p>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline  "> <FcGoogle className='text-3xl mr-2'></FcGoogle> Continue with Google</button>
+                    <button className="btn btn-outline  "  onClick={()=>{signInWithGoogle()}}> <FcGoogle className='text-3xl mr-2'></FcGoogle> Continue with Google</button>
 
 
                 </div>
