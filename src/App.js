@@ -6,6 +6,7 @@ import Contact from './Components/Contact';
 import Home from './Components/Home';
 import LogIn from './Components/LogIn';
 import NotFound from './Components/NotFound';
+import Registration from './Components/Registration';
 import Footer from './Shared/Footer';
 import Navbar from './Shared/Navbar';
 
@@ -19,6 +20,7 @@ function App() {
        <Route path='/about' element={<About></About>}></Route>
        <Route path='/contact' element={<Contact></Contact>}></Route>
        <Route path='/login' element={<LogIn></LogIn>}></Route>
+       <Route path='/registration' element={<Registration></Registration>}></Route>
        <Route path='/*' element={<NotFound></NotFound>}></Route>
      </Routes>
      <Footer></Footer>

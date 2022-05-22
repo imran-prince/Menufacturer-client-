@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
 const LogIn = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => {
@@ -67,9 +68,9 @@ const LogIn = () => {
                         {/* {signError} */}
                         <input className=' btn w-full max-w-xs text-white' type="submit" value='login' />
                     </form>
-                    <p><small>New to docors portal ? <Link to='/registration' className='text-secondary  '>Create new Account</Link></small></p>
+                    <p><span>New Princees parts ? <Link to='/registration' className='text-primary  '>Create new Account</Link></span></p>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline bg-primary ">Continue with Google</button>
+                    <button className="btn btn-outline  "> <FcGoogle className='text-3xl mr-2'></FcGoogle> Continue with Google</button>
 
 
                 </div>
