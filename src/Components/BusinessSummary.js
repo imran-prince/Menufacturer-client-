@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CountUp from 'react-countup';
 const BusinessSummary = () => {
     return (
         // <div className='text-center  my-11'>
@@ -51,7 +51,7 @@ const BusinessSummary = () => {
                         </div>
                     </div>
                     <div className="stat-title">Total Customer</div>
-                    <div className="stat-value text-primary">100+</div>
+                    <div className="stat-value text-primary"><CountUp start={50} end={100} />+</div>
                     <div className="stat-desc">5 new customer big dill sign this month</div>
                 </div>
                 <div  >
@@ -62,7 +62,7 @@ const BusinessSummary = () => {
                         </div>
                     </div>
                     <div className="stat-title">Annual Revenue</div>
-                    <div className="stat-value text-primary">120M+ </div>
+                    <div className="stat-value text-primary"><CountUp start={20} end={50}/>M+ </div>
                     <div className="stat-desc">10% revenew earn    last month</div>
                 </div>
                 <div  >
@@ -73,7 +73,7 @@ const BusinessSummary = () => {
                         </div>
                     </div>
                     <div className="stat-title">Reviews</div>
-                    <div className="stat-value text-primary">40K+</div>
+                    <div className="stat-value text-primary"><CountUp start={20} end={40}/>K+</div>
                     <div className="stat-desc">very satisfaction my customer</div>
                 </div>
                 <div  >
@@ -84,7 +84,7 @@ const BusinessSummary = () => {
                         </div>
                     </div>
                     <div className="stat-title">Total Tools</div>
-                    <div className="stat-value text-primary">50+ </div>
+                    <div className="stat-value text-primary"><CountUp start={20} end={50}/>+ </div>
                     <div className="stat-desc">different tools upcomming</div>
                 </div>
             </div>

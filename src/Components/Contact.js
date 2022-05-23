@@ -1,9 +1,11 @@
 import React from 'react';
 
+
 const Contact = () => {
+     
     return (
         <div>
-            hellow mama contact....
+            hellow mama contact.. 
         </div>
     );
 };
