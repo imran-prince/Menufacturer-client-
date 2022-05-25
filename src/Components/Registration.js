@@ -1,21 +1,30 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase.init';
+import Loading from './Loading';
 const Registration = () => {
+    const navigate=useNavigate()
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth );
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    if (loading || gLoading) {
+        return <Loading></Loading>
+    }
+    if(user||gUser)
+    {
+       navigate('/')
+    }
     const onSubmit = (data) => {
-        createUserWithEmailAndPassword(data.email,data.password)
-         
+        createUserWithEmailAndPassword(data.email, data.password)
+
     }
     return (
         <div className='flex h-screen justify-center items-center mb-10'>
@@ -35,11 +44,11 @@ const Registration = () => {
                                     message: "Name is required "
 
                                 },
-                                 
+
                             })} type="text" placeholder="princes" className="input input-bordered w-full max-w-xs" />
                             <label className="label">
                                 {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-                                
+
 
                             </label>
                         </div>
@@ -93,7 +102,7 @@ const Registration = () => {
                     </form>
                     <p><span>Already have an Account ? <Link to='/login' className='text-primary  '><i>Please Login</i></Link></span></p>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline  "  onClick={()=>{signInWithGoogle()}}> <FcGoogle className='text-3xl mr-2'></FcGoogle> Continue with Google</button>
+                    <button className="btn btn-outline  " onClick={() => { signInWithGoogle() }}> <FcGoogle className='text-3xl mr-2'></FcGoogle> Continue with Google</button>
 
 
                 </div>
