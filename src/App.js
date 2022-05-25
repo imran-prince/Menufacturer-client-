@@ -11,6 +11,10 @@ import Footer from './Shared/Footer';
 import Navbar from './Shared/Navbar';
 import RequireAuth from './Components/RequireAuth'
 import Blog from './Components/Blog';
+import Dashboard from './Components/Dashboard';
+ import MyOrder from './Components/MyOrder.js'
+import AddReview from './Components/AddReview';
+import MyProfile from './Components/MyProfile';
 function App() {
   return (
     <div  >
@@ -23,6 +27,16 @@ function App() {
         <Route path='/contact' element={<RequireAuth>
           <Contact></Contact>
         </RequireAuth>}></Route>
+        <Route path='/dashboard' element={<RequireAuth>
+          <Dashboard></Dashboard>
+        </RequireAuth>}>
+           
+          <Route path='addreview' element={<AddReview></AddReview>}></Route>
+          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='myorders'  element={<MyOrder></MyOrder>}></Route>
+           
+
+        </Route>
         <Route path='/login' element={<LogIn></LogIn>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
