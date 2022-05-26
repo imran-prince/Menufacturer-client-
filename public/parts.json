@@ -3,7 +3,7 @@
     {
       
       "name": "Monitor",
-      "quantity": 51,
+       
       "suppliyer_name": "Walton",
       "description":"A monitor is an electronic visual computer display that includes a screen, circuitry and the case in which that circuitry is enclosed. Older computer monitors made use of cathode ray tubes (CRT), which made them large, heavy and inefficient.",
       "price_per_unit":1200,
@@ -18,7 +18,7 @@
       "minimum_quantity":50,
       "avilable_quantity":100,
       "name": "Ram.",
-      "quantity": 5,
+       
       "suppliyer_name": "INTEL",
   
   
@@ -32,7 +32,7 @@
       "price_per_unit":1800,
       "minimum_quantity":50,
       "avilable_quantity":100,
-      "quantity": 3,
+       
       "suppliyer_name": "ASUS",
       "name": "Laptop",
       "description":"A laptop computer, sometimes called a notebook computer by manufacturers, is a battery- or AC-powered personal computer generally smaller than a briefcase that can easily be transported and conveniently used in temporary spaces such as on airplanes, in libraries, temporary offices, and at meetings.;",
@@ -46,7 +46,7 @@
       "minimum_quantity":50,
       "avilable_quantity":100,
       "name": "Display",
-      "quantity": 100,
+       
       "suppliyer_name": "LCD",
       "description":"A display is a computer output surface and projecting mechanism that shows text and often graphic images to the computer user, using a cathode ray tube ( CRT ), liquid crystal display ( LCD ), light-emitting diode, gas plasma, or other image projection technology. ",
        
@@ -60,7 +60,7 @@
       "minimum_quantity":50,
       "avilable_quantity":100,
       "name": "KeyBoard",
-      "quantity": 500,
+       
       "suppliyer_name": "A4 Thech",
       "description":"A computer keyboard is an input device that allows a person to enter letters, numbers, and other symbols (together, these are called characters) into a computer. It is one of the most used input devices for computers. Using a keyboard is often called typing.. ",
      
@@ -76,7 +76,7 @@
       "minimum_quantity":50,
       "avilable_quantity":100,
       "name": "SSD.",
-      "quantity": 5,
+       
       "suppliyer_name": "Samsung",
       "description":"A solid-state drive (SSD) is a new generation of storage device used in computers. SSDs use flash-based memory, which is much faster than a traditional mechanical hard disk. Upgrading to an SSD is one of the best ways to speed up your computer..",
      

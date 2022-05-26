@@ -7,14 +7,14 @@ import { auth } from '../firebase.init';
 
 const Navbar = () => {
     const [user] = useAuthState(auth)
-    console.log(user)
+   
     const menuItems = <>
         <li><CustomLink to='/home'>Home</CustomLink></li>
         <li><CustomLink to='/contact'>About</CustomLink></li>
         <li><CustomLink to='/about'>Contact</CustomLink></li>
         <li><CustomLink to='/blog'>Blog</CustomLink></li>
         {
-            user ? <button class="btn btn-link" onClick={() => signOut(auth)}>logout</button> : <li><CustomLink to='/login'>Login</CustomLink></li>
+            user ? <button className="btn btn-link" onClick={() => signOut(auth)}>logout</button> : <li><CustomLink to='/login'>Login</CustomLink></li>
         }
         {
             
@@ -50,10 +50,12 @@ const Navbar = () => {
             <div className="navbar-end">
 
                 {user && <>
-                    <div class="avatar online">
-                        <div class="w-12 rounded-full">
+                    <div className="avatar online">
+                        <div className="w-12 rounded-full">
 
-                            <img src={user?.photoURL} />
+                            {
+                                user.photoURL ?<img src={user?.photoURL} />:<img src= 'https://api.lorem.space/image/face?hash=53273' />
+                            }
                         </div>
                     </div>
                     <div className='mx-5'>{user?.displayName}</div>

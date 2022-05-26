@@ -5,6 +5,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase.init';
 import Loading from './Loading';
+import useToken from './hooks/useToken';
 const Registration = () => {
     const navigate=useNavigate()
     const [
@@ -15,10 +16,11 @@ const Registration = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [token] = useToken(user || gUser)
     if (loading || gLoading) {
         return <Loading></Loading>
     }
-    if(user||gUser)
+    if(token)
     {
        navigate('/')
     }
@@ -98,7 +100,7 @@ const Registration = () => {
                         </div>
 
                         {/* {signError} */}
-                        <input className=' btn w-full max-w-xs text-white' type="submit" value='login' />
+                        <input className=' btn w-full max-w-xs text-white' type="submit" value='Register' />
                     </form>
                     <p><span>Already have an Account ? <Link to='/login' className='text-primary  '><i>Please Login</i></Link></span></p>
                     <div className="divider">OR</div>

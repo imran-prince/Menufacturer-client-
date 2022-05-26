@@ -3,6 +3,7 @@ import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
 import Header from './Header';
 import HomePageParts from './HomePageParts';
+import HomePageReview from './HomePageReview';
  
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
            <Banner></Banner>
            <HomePageParts></HomePageParts>
            <BusinessSummary></BusinessSummary>
+           <HomePageReview></HomePageReview>
         </div>
     );
 };

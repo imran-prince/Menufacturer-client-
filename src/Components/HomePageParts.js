@@ -14,7 +14,7 @@ const HomePageParts = () => {
             <h2 className='text-primary text-2xl text-center my-8'>Different Parts</h2>
             <div className='container grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {
-                   products.map(products => <SingleProducts key={products._id} products={products}></SingleProducts>)
+                   products.slice(-6).reverse().map(products => <SingleProducts key={products._id} products={products}></SingleProducts>)
                 }
             </div>
         </div>
