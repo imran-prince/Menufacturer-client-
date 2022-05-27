@@ -6,7 +6,9 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import { auth } from '../firebase.init';
 import Loading from './Loading';
 import useToken from './hooks/useToken';
+ 
 const Registration = () => {
+ 
     const navigate=useNavigate()
     const [
         createUserWithEmailAndPassword,
@@ -15,17 +17,27 @@ const Registration = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit,reset } = useForm();
     const [token] = useToken(user || gUser)
+    let signError;
     if (loading || gLoading) {
         return <Loading></Loading>
+    }
+    if(error || gError)
+    {
+        signError=<p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
     if(token)
     {
        navigate('/')
     }
     const onSubmit = (data) => {
+        
+       
         createUserWithEmailAndPassword(data.email, data.password)
+        reset()
+        
+         
 
     }
     return (
@@ -40,14 +52,14 @@ const Registration = () => {
                                 <span className="label-text">Your Name</span>
 
                             </label>
-                            <input {...register("name", {
+                            <input   {...register("name", {
                                 required: {
                                     value: true,
                                     message: "Name is required "
 
                                 },
 
-                            })} type="text" placeholder="princes" className="input input-bordered w-full max-w-xs" />
+                            })} type="text"  placeholder="princes" className="input input-bordered w-full max-w-xs" />
                             <label className="label">
                                 {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
 
@@ -99,7 +111,7 @@ const Registration = () => {
                             </label>
                         </div>
 
-                        {/* {signError} */}
+                        {signError}
                         <input className=' btn w-full max-w-xs text-white' type="submit" value='Register' />
                     </form>
                     <p><span>Already have an Account ? <Link to='/login' className='text-primary  '><i>Please Login</i></Link></span></p>

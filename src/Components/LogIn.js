@@ -5,6 +5,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { auth } from '../firebase.init';
 import {  useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
  import Loading from './Loading'
+import useToken from './hooks/useToken';
 const LogIn = () => {
     const navigate = useNavigate();
   const location = useLocation();
@@ -13,6 +14,7 @@ const LogIn = () => {
     const [signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [token]=useToken(user || gUser)
     let signError;
     if(gError||error)
     {
@@ -22,7 +24,7 @@ const LogIn = () => {
     {
         return  <Loading></Loading>
     }
-    if(user||gUser)
+    if(token)
     {
            navigate(from, { replace: true });
 

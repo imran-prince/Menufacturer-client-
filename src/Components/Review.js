@@ -4,7 +4,7 @@ const Review = ({ review }) => {
     const {productName,customerName,rating,description}=review
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl ">
                  
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">Name: {customerName}</h2>

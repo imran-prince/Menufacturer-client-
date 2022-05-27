@@ -16,13 +16,14 @@ import MyOrder from './Components/MyOrder.js'
 import AddReview from './Components/AddReview';
 import MyProfile from './Components/MyProfile';
 import Purses from './Components/Purses';
+import Allusers from './Components/Allusers'
 import 'react-toastify/dist/ReactToastify.css';
 import OrderPayment from './Components/OrderPayment';
-import Allusers from './Components/Allusers';
 import RequireAdmin from './Components/RequireAdmin';
 import AddProduct from './Components/AddProduct';
 import ManageAllProduct from './Components/ManageAllProduct';
 import ManageAllOrder from './Components/ManageAllOrder';
+import UpdateMyprofile from './Components/UpdateMyprofile';
 function App() {
   return (
     <div  >
@@ -49,27 +50,27 @@ function App() {
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='myorders' element={<MyOrder></MyOrder>}></Route>
-          <Route path='users' element={ 
-            <Allusers></Allusers>
-            }></Route>
+           
           <Route path='addproduct' element={<RequireAdmin>
             <AddProduct></AddProduct>
           </RequireAdmin>}></Route>
+          <Route path='users' element={ 
+            <Allusers></Allusers>
+          }></Route>
           <Route path='manageproduct' element={<RequireAdmin>
             <ManageAllProduct></ManageAllProduct>
           </RequireAdmin>}></Route>
           <Route path='manageorder' element={<RequireAdmin>
             <ManageAllOrder></ManageAllOrder>
           </RequireAdmin>}></Route>
-          {/* <Route index element={ 
-            <ManageAllOrder></ManageAllOrder>
-           }></Route> */}
+
 
 
 
         </Route>
         <Route path='/login' element={<LogIn></LogIn>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
+        <Route path='/updateprofile' element={<UpdateMyprofile></UpdateMyprofile>}></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

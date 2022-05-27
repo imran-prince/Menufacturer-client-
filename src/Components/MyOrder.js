@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase.init';
+import MyorderCancel from './MyorderCancel';
 
 const MyOrder = () => {
     const [user] = useAuthState(auth)
+    const [deletingProduct, setDeletingProduct] = useState(null)
     const [order, setOrder] = useState([])
- 
-  
+
+
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
@@ -29,42 +31,48 @@ const MyOrder = () => {
                     return rs.json()
                 })
                 .then(data => {
-                    console.log(data)
+                    
                     setOrder(data)
                 })
         }
-    }, [user])
+    }, [order,deletingProduct])
     return (
         <div>
             <h1>My order {order.length}</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Product-Name</th>
-                            <th>Order Quentity </th>
-                            <th>Per_unit_price</th>
-                            <th>Total Price </th>
-                            <th></th>
-                            <th>Action </th>
-                            <th></th>
+                    {
+                        order.length > 0 ? <>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Product-Name</th>
+                                    <th>Order Quentity </th>
+                                    <th>Per_unit_price</th>
+                                    <th>Total Price </th>
+                                    <th>Status</th>
+                                    <th></th>
+                                    <th>Action </th>
+                                    <th></th>
 
-                        </tr>
-                    </thead>
+                                </tr>
+                            </thead>
+                        </> : 'You have no order'
+                    }
                     <tbody>
                         {
-                            order.map((order,index) => <tr key={order._id}>
-                                <th>{index+1}</th>
+                            order.map((order, index) => <tr key={order._id}>
+                                <th>{index + 1}</th>
                                 <th>{order.displayName} </th>
                                 <td>{order.productName}</td>
                                 <td>{order.orderQuantity}</td>
                                 <td>{order.price} $ </td>
-                                <td>{parseInt(order.orderQuantity)*parseInt(order.price)} $</td>
-                                <td> <button   className="btn btn-xs btn-primary">Pay</button></td>
-                                <td><button className="btn btn-xs btn-error">Cencel</button></td>
+                                <td>{parseInt(order.orderQuantity) * parseInt(order.price)} $</td>
+                                <td>pending</td>
+                                <td> <button className="btn btn-xs btn-primary">Pay</button></td>
+                                <td><label onClick={() => setDeletingProduct(order)} for="delete-confirm-modal" class="btn btn-xs btn-error">cencel</label></td>
 
                             </tr>)
                         }
@@ -76,6 +84,11 @@ const MyOrder = () => {
                     </tbody>
                 </table>
             </div>
+            {
+
+                deletingProduct && <MyorderCancel deletingProduct={deletingProduct}  setDeletingProduct={setDeletingProduct}></MyorderCancel>
+
+            }
         </div>
     );
 };

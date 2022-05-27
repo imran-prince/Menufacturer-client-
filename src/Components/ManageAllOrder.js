@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import DeletingManageProduct from './DeletingManageProduct';
 import Loading from './Loading';
 import ManageAllOrderRow from './ManageAllOrderRow';
 
 const ManageAllOrder = () => {
+    const [deletingProduct,setDeletingProduct]=useState(null)
     const { data: allorder, isLoading, refetch } = useQuery('allorder', () => fetch('http://localhost:5000/order', {
         method: "GET",
         // headers: {
@@ -23,21 +25,30 @@ const ManageAllOrder = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th></th>
+                            <th>Product Name</th>
+                            <th>Product</th>
+                            <th>Customer Email</th>
+                            <th>Order</th>
                             <th>Status</th>
+                            
+                            <th>Admin Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
 
                         {
-                            allorder?.map((allorder, index) => <ManageAllOrderRow  index={index} key={allorder._id}  allorder={allorder} refetch={refetch}></ManageAllOrderRow>)
+                            allorder?.map((allorder, index) => <ManageAllOrderRow  index={index} key={allorder._id}  allorder={allorder} setDeletingProduct={setDeletingProduct} refetch={refetch}></ManageAllOrderRow>)
                         }
 
                     </tbody>
                 </table>
             </div>
+            {
+                
+                    deletingProduct &&<DeletingManageProduct deletingProduct={deletingProduct} refetch={refetch} setDeletingProduct={setDeletingProduct}></DeletingManageProduct> 
+                
+            }
              
         </div>
     );

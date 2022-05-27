@@ -1,16 +1,17 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
- 
+
 import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../firebase.init';
 import Loading from './Loading';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const [user,loading]=useAuthState(auth)
-    const navigate=useNavigate()
+    const [user, loading] = useAuthState(auth)
+    const navigate = useNavigate()
     const imageStorage = 'df511ada4376de198cb83007af0a4153'
     const onSubmit = async data => {
         const image = data?.image[0]
@@ -27,16 +28,16 @@ const AddProduct = () => {
                     const img = result.data.url
                     const product = {
                         name: data.name,
-                        minimum_quantity:data.minquantity,
-                        avilable_quantity:data.abilablequantity,
-                        price_per_unit:data.price,
-                        description:data.description,
+                        minimum_quantity: data.minquantity,
+                        avilable_quantity: data.abilablequantity,
+                        price_per_unit: data.price,
+                        description: data.description,
                         email: user?.email,
                         img: img
-                   
-              
-                       
-                       
+
+
+
+
 
 
 
@@ -49,9 +50,11 @@ const AddProduct = () => {
                         },
                         body: JSON.stringify(product)
                     })
-                        .then(rs => rs.json())
+                        .then(rs =>rs.json())
+                         
                         .then(newproduct => {
-                            console.log(newproduct)
+                       
+
                             if (newproduct.insertedId) {
                                 toast.success('newproduct Added successfullay')
                                 navigate('/')
@@ -63,14 +66,13 @@ const AddProduct = () => {
                         })
                 }
             })
-            if(loading)
-            {
-                return <Loading></Loading>
-            }
-       
+        if (loading) {
+            return <Loading></Loading>
+        }
+
 
     }
-     
+
     return (
         <div className='mb-10'>
             <h2 className='text-2xl'>Add New Product</h2>
@@ -172,11 +174,11 @@ const AddProduct = () => {
 
                     </label>
                     <input readOnly disabled  {...register("email", {
-                         
+
                     })} type="email" value={user?.email} className="input input-bordered w-full max-w-xs" />
-                     
+
                 </div>
-                
+
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Your Photo</span>
