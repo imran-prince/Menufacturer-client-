@@ -42,7 +42,7 @@ const AddProduct = () => {
 
 
                     }
-                    fetch('http://localhost:5000/addproduct', {
+                    fetch('https://guarded-inlet-86447.herokuapp.com/addproduct', {
                         method: "POST",
                         headers: {
                             'content-type': "application/json",

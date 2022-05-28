@@ -35,7 +35,7 @@ const UpdateMyprofile = () => {
                          photoURL: img
                     }
                      
-                    fetch(`http://localhost:5000/user/${user.email}`, {
+                    fetch(`https://guarded-inlet-86447.herokuapp.com/user/${user.email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

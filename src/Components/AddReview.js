@@ -30,7 +30,7 @@ const AddReview = () => {
             }
             if(rating>0 & rating<=5)
             {
-                fetch("http://localhost:5000/review",{
+                fetch("https://guarded-inlet-86447.herokuapp.com/review",{
                     method:"POST",
                     headers:{
                     'content-type':'application/json'

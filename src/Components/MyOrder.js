@@ -14,7 +14,7 @@ const MyOrder = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/myorder?myorder=${user.email}`, {
+            fetch(`https://guarded-inlet-86447.herokuapp.com/myorder?myorder=${user.email}`, {
                 method: "GET",
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accesstoken')}`

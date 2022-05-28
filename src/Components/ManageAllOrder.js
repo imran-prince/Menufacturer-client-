@@ -6,7 +6,7 @@ import ManageAllOrderRow from './ManageAllOrderRow';
 
 const ManageAllOrder = () => {
     const [deletingProduct,setDeletingProduct]=useState(null)
-    const { data: allorder, isLoading, refetch } = useQuery('allorder', () => fetch('http://localhost:5000/order', {
+    const { data: allorder, isLoading, refetch } = useQuery('allorder', () => fetch('https://guarded-inlet-86447.herokuapp.com/order', {
         method: "GET",
         // headers: {
         //     'authorization': `Bearer ${localStorage.getItem('accesstoken')}`

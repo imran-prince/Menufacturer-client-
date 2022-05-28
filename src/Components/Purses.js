@@ -62,7 +62,7 @@ const Purses = () => {
             }
             if (parseInt(order) >= pursesProduct?.minimum_quantity && parseInt(order)<=pursesProduct?.avilable_quantity)
             {
-                fetch("http://localhost:5000/order",{
+                fetch("https://guarded-inlet-86447.herokuapp.com/order",{
                     method:"POST",
                     headers:{
                     'content-type':'application/json'

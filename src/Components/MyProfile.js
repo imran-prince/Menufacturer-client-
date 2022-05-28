@@ -9,7 +9,7 @@ const MyProfile = () => {
     const navigate = useNavigate()
     const [info, setInfo] = useState('')
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.email}`)
+        fetch(`https://guarded-inlet-86447.herokuapp.com/user/${user.email}`)
             .then(rs => rs.json())
             .then(data => {
                  

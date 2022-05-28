@@ -4,7 +4,7 @@ import Loading from './Loading';
 import SingleProducts from './SingleProducts';
 
 const HomePageParts = () => {
-    const { data: products, isLoading } = useQuery('products', () => fetch(`http://localhost:5000/product`).then(rs => rs.json()))
+    const { data: products, isLoading } = useQuery('products', () => fetch(`https://guarded-inlet-86447.herokuapp.com/product`).then(rs => rs.json()))
     if (isLoading) {
         return <Loading></Loading>
         
