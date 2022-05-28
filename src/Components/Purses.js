@@ -22,7 +22,7 @@ const Purses = () => {
 
 
     const pursesProduct = products.find(product => product._id === _id)
-        console.log(  pursesProduct?.avilable_quantity)
+       
     const quantityHandaler = (event) => {
         const order = event.target.value
         setOrder(order)
@@ -76,16 +76,15 @@ const Purses = () => {
                 })
                 .then(res=>res.json())
                 .then(data=>{
-                    console.log(data)
-                    if(data.success){
-                        toast.success(`Order is  successfully`)
-                        navigate('/payment')
+                     console.log(data)
+                    if(data.success===true){
+                        toast(`order successfullay  `)
+                        navigate(`/payment`)
                     }
-
                     else{
-                        toast.error('not success')
+                        toast.error(`Already have an order on`)
                     }
-            
+                     
                 })
             }
             else

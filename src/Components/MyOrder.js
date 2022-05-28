@@ -71,7 +71,7 @@ const MyOrder = () => {
                                 <td>{order.price} $ </td>
                                 <td>{parseInt(order.orderQuantity) * parseInt(order.price)} $</td>
                                 <td>pending</td>
-                                <td> <button className="btn btn-xs btn-primary">Pay</button></td>
+                                <td> <button onClick={()=> navigate('/payment')} className="btn btn-xs btn-primary">Pay</button></td>
                                 <td><label onClick={() => setDeletingProduct(order)} for="delete-confirm-modal" class="btn btn-xs btn-error">cencel</label></td>
 
                             </tr>)
