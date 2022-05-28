@@ -42,8 +42,7 @@ const MyOrder = () => {
             <div className="overflow-x-auto">
                 <table className="table w-full">
 
-                    {
-                        order.length > 0 ? <>
+                     
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -59,8 +58,7 @@ const MyOrder = () => {
 
                                 </tr>
                             </thead>
-                        </> : 'You have no order'
-                    }
+                    
                     <tbody>
                         {
                             order.map((order, index) => <tr key={order._id}>
