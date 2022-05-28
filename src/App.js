@@ -1,7 +1,7 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import About from './Components/About';
+ 
 import Contact from './Components/Contact';
 import Home from './Components/Home';
 import LogIn from './Components/LogIn';
@@ -32,7 +32,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/about' element={<About></About>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/portfolio' element={<MyPortFolio></MyPortFolio>}></Route>
         <Route path='/payment' element={<RequireAuth>
@@ -41,9 +40,8 @@ function App() {
         <Route path='/purses/:_id' element={<RequireAuth>
           <Purses></Purses>
         </RequireAuth>}></Route>
-        <Route path='/contact' element={<RequireAuth>
-          <Contact></Contact>
-        </RequireAuth>}></Route>
+        <Route path='/contact' element={ 
+          <Contact></Contact>}></Route>
         <Route path='/dashboard' element={<RequireAuth>
           <Dashboard></Dashboard>
         </RequireAuth>}>
@@ -57,7 +55,9 @@ function App() {
             <AddProduct></AddProduct>
           </RequireAdmin>}></Route>
           <Route path='users' element={ 
-            <Allusers></Allusers>
+            <RequireAdmin>
+              <Allusers></Allusers>
+            </RequireAdmin>
           }></Route>
           <Route path='manageproduct' element={<RequireAdmin>
             <ManageAllProduct></ManageAllProduct>

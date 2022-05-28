@@ -62,10 +62,6 @@ const Purses = () => {
             }
             if (parseInt(order) >= pursesProduct?.minimum_quantity && parseInt(order)<=pursesProduct?.avilable_quantity)
             {
-                
- 
-             
-            
                 fetch("http://localhost:5000/order",{
                     method:"POST",
                     headers:{
@@ -78,7 +74,7 @@ const Purses = () => {
                 .then(data=>{
                      console.log(data)
                     if(data.success===true){
-                        toast(`order successfullay  `)
+                        toast.success(`order successfullay  `)
                         navigate(`/payment`)
                     }
                     else{

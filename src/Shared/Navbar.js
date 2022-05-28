@@ -14,8 +14,7 @@ const Navbar = () => {
    
     const menuItems = <>
         <li><CustomLink to='/home'>Home</CustomLink></li>
-        <li><CustomLink to='/contact'>About</CustomLink></li>
-        <li><CustomLink to='/about'>Contact</CustomLink></li>
+        <li><CustomLink to='/contact'>Contact</CustomLink></li>
         <li><CustomLink to='/blog'>Blog</CustomLink></li>
         <li><CustomLink to='/portfolio'>My Portfolio</CustomLink></li>
         {
