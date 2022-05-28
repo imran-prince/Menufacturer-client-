@@ -24,6 +24,7 @@ import AddProduct from './Components/AddProduct';
 import ManageAllProduct from './Components/ManageAllProduct';
 import ManageAllOrder from './Components/ManageAllOrder';
 import UpdateMyprofile from './Components/UpdateMyprofile';
+import MyPortFolio from './Components/MyPortFolio';
 function App() {
   return (
     <div  >
@@ -33,6 +34,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/portfolio' element={<MyPortFolio></MyPortFolio>}></Route>
         <Route path='/payment' element={<RequireAuth>
           <OrderPayment></OrderPayment>
         </RequireAuth>}></Route>

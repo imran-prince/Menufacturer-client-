@@ -17,6 +17,7 @@ const Navbar = () => {
         <li><CustomLink to='/contact'>About</CustomLink></li>
         <li><CustomLink to='/about'>Contact</CustomLink></li>
         <li><CustomLink to='/blog'>Blog</CustomLink></li>
+        <li><CustomLink to='/portfolio'>My Portfolio</CustomLink></li>
         {
             user ? <button className="btn btn-link" onClick={logOut}>logout</button> : <li><CustomLink to='/login'>Login</CustomLink></li>
         }
