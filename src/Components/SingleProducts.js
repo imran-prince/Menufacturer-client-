@@ -14,12 +14,13 @@ const SingleProducts = ({ products }) => {
                     <img src= {img} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title"> {name}</h2>
-                    <p><small>price_per_unit{price_per_unit}</small></p>
-                    <p><small>Minimum_Order_quantity{minimum_quantity}</small></p>
-                    <p><small>avilable_quantity{avilable_quantity}</small></p>
+                    <h2 className="card-title">Product Name: {name}</h2>
+                    <p>Price_per_unit $ <span className='text-3xl font-bold text-secondary'>{price_per_unit}</span></p>
+                    <p>Minimum_Order_quantity : {minimum_quantity}</p>
+                    <p>Avilable_quantity : {avilable_quantity}</p>
+                    <p><i className='text-red-300'>Description </i>: {description}</p>
                     <div className="card-actions">
-                        <button  onClick={handelPurses} className="btn btn-primary">Purses</button>
+                        <button  onClick={handelPurses} className="btn btn-primary"><span className='font-bold text-white text-2xl'>Purses</span></button>
                     </div>
                 </div>
             </div>
